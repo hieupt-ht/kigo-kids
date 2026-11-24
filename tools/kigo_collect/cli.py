@@ -6,28 +6,37 @@ import csv
 import sys
 from pathlib import Path
 
-from .cambridge import WordRow, extract_pdf_text, parse_wordlist_text
+from .cambridge import WordRow, extract_pdf_text, parse_az_wordlists, parse_thematic, parse_wordlist_text
 from .fetch import FetchBlocked, FetchFailed
 from .index import _entries, build_index, sync_review
 from .entry import validate
 from .licenses import classify_license
 
-VOCAB_COLS = ["word", "pos", "level", "topic"]
+VOCAB_COLS = ["word", "pos", "level", "topic", "note"]
 
 
 def cmd_wordlist(args, root: Path) -> int:
     src = Path(args.pdf)
     text = src.read_text(encoding="utf-8") if src.suffix == ".txt" else extract_pdf_text(src)
-    new = parse_wordlist_text(text, args.level)
+    if args.layout == "az2025":
+        new = parse_az_wordlists(text)
+        topics = parse_thematic(text)
+        for w in new:  # the thematic list names a sense as `bat (as sports equipment)`
+            found = topics.get(f"{w.word} ({w.note})".lower()) or topics.get(w.word.lower())
+            w.topic = "; ".join(found) if found else None
+    else:
+        new = parse_wordlist_text(text, args.level)
     out = root / "english" / "curriculum" / "vocabulary.csv"
     out.parent.mkdir(parents=True, exist_ok=True)
     rows: dict[tuple, dict] = {}
     if out.exists():
         for r in csv.DictReader(out.open(encoding="utf-8-sig", newline="")):
-            rows[(r["word"], r["pos"], r["level"])] = r
+            rows[(r["word"], r["pos"], r["level"])] = {c: r.get(c) or "" for c in VOCAB_COLS}
     for w in new:
-        rows.setdefault((w.word, w.pos, w.level),
-                        {"word": w.word, "pos": w.pos, "level": w.level, "topic": w.topic or ""})
+        row = rows.setdefault((w.word, w.pos, w.level),
+                              {"word": w.word, "pos": w.pos, "level": w.level, "topic": "", "note": ""})
+        row["topic"] = row["topic"] or w.topic or ""  # fill blanks on a re-run, never overwrite
+        row["note"] = row["note"] or w.note
     with out.open("w", encoding="utf-8-sig", newline="") as f:
         wr = csv.DictWriter(f, fieldnames=VOCAB_COLS)
         wr.writeheader()
@@ -36,11 +45,24 @@ def cmd_wordlist(args, root: Path) -> int:
     return 0
 
 
+def read_titles(path: Path) -> list[str]:
+    """Titles from a content list: skips blanks and `#` comments, drops a leading `*` (core set)
+    and anything after `|` (a note such as a year)."""
+    out = []
+    for line in Path(path).read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        title = line.lstrip("*").split("|")[0].strip()
+        if title:
+            out.append(title)
+    return out
+
+
 def cmd_wiki(args, root: Path) -> int:
     from .mediawiki import get_page
 
-    titles = [args.title] if args.title else [
-        t.strip() for t in Path(args.titles_file).read_text(encoding="utf-8").splitlines() if t.strip()]
+    titles = [args.title] if args.title else read_titles(args.titles_file)
     code = 0
     for t in titles:
         try:
@@ -99,8 +121,10 @@ def main(argv: list[str] | None = None) -> int:
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("wordlist")
     p.add_argument("--pdf", required=True)
-    p.add_argument("--level", required=True, choices=["starters", "movers", "flyers"])
-    p.set_defaults(fn=cmd_wordlist)
+    p.add_argument("--level", choices=["starters", "movers", "flyers"])
+    p.add_argument("--layout", choices=["list", "az2025"], default="list",
+                   help="list: one `word (pos)` per line for one --level; az2025: the combined 2025 PDF, all levels")
+    p.set_defaults(fn=cmd_wordlist, parser=p)
     p = sub.add_parser("wiki")
     p.add_argument("--site", required=True, choices=["vi.wikipedia", "vi.wikisource"])
     g = p.add_mutually_exclusive_group(required=True)
@@ -116,4 +140,6 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--csv", required=True)
     p.set_defaults(fn=cmd_sync)
     args = ap.parse_args(argv)
+    if args.cmd == "wordlist" and args.layout == "list" and not args.level:
+        args.parser.error("--level is required unless --layout az2025")
     return args.fn(args, Path(args.root))
