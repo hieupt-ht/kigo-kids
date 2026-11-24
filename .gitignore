@@ -1,0 +1,7 @@
+.superpowers/
+kigo-data/raw/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+*.egg-info/
