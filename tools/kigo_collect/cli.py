@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import sys
 from pathlib import Path
 
 from .cambridge import WordRow, extract_pdf_text, parse_wordlist_text
@@ -91,6 +92,8 @@ def cmd_sync(args, root: Path) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    for stream in (sys.stdout, sys.stderr):
+        stream.reconfigure(encoding="utf-8", errors="replace")
     ap = argparse.ArgumentParser(prog="kigo_collect")
     ap.add_argument("--root", default="kigo-data")
     sub = ap.add_subparsers(dest="cmd", required=True)

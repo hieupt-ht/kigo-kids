@@ -19,15 +19,17 @@ def patch(monkeypatch, name):
 
 
 def test_wikipedia_license_reference(monkeypatch, tmp_path):
-    seen = patch(monkeypatch, "wikipedia_page.json")
+    seen = patch(monkeypatch, "wikipedia_page.html")
     page = mediawiki.get_page("vi.wikipedia", "Thánh Gióng", cache_dir=tmp_path)
     assert classify_license(page.license_raw)[0] == "reference"
     assert page.title == "Thánh Gióng" and "huyền thoại" in page.text
-    assert seen["url"].startswith("https://vi.wikipedia.org/")
-    assert seen["params"]["explaintext"] == 1
+    assert seen["url"] == "https://vi.wikipedia.org/wiki/Th%C3%A1nh_Gi%C3%B3ng"
+    assert "[1]" not in page.text and "x{}" not in page.text
+    assert "Đời Hùng Vương thứ sáu." in page.text
+    assert page.categories == ["Thể loại:Truyền thuyết Việt Nam"]
 
 
 def test_wikisource_pd_category(monkeypatch, tmp_path):
-    patch(monkeypatch, "wikisource_page.json")
+    patch(monkeypatch, "wikisource_page.html")
     page = mediawiki.get_page("vi.wikisource", "Sơn Tinh Thủy Tinh", cache_dir=tmp_path)
     assert page.license_raw == "public-domain"
