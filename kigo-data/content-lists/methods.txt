@@ -1,0 +1,15 @@
+# Phương pháp dạy tiếng Anh cho trẻ 6–10 tuổi. * = bộ lõi. Phần sau dấu | là slug dùng ở tags_method.
+*Phonics (ghép âm – chữ) | phonics
+*Total Physical Response – học qua vận động (TPR) | tpr
+*Storytelling – học qua kể chuyện | storytelling
+*Songs and chants – bài hát và chant | songs-chants
+*CLIL – học nội dung bằng tiếng Anh | clil
+*Spaced repetition – ôn tập ngắt quãng | spaced-repetition
+*Gamification – trò chơi hóa | gamification
+*Task-based learning – học theo nhiệm vụ | task-based
+*Picture–word và flashcards | picture-word
+*Dialogic reading – đọc đối thoại | dialogic-reading
+*Mastery learning – học đến khi thành thạo | mastery-learning
+*Comprehensible input – đầu vào dễ hiểu | comprehensible-input
+Multisensory learning – học đa giác quan | multisensory
+Retrieval practice – luyện nhớ lại | retrieval-practice

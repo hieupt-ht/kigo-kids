@@ -1,0 +1,86 @@
+# Truyện cổ tích / truyền thuyết / ngụ ngôn / dân gian Việt Nam. Dòng bắt đầu bằng * là bộ lõi (làm trước).
+# Phần trước dấu | là tên bài trên vi.wikipedia (đã kiểm ở Task 7: mở được). Phần sau là ghi chú thể loại.
+# Bản kể cho bé do Claude viết lại từ nguồn, không chép nguyên văn (Wikipedia là CC BY-SA, nhãn reference).
+*Sơn Tinh – Thủy Tinh | truyền thuyết
+*Thánh Gióng | truyền thuyết
+*Hồ Hoàn Kiếm | truyền thuyết Sự tích Hồ Gươm
+*Lang Liêu | truyền thuyết bánh chưng bánh giầy
+*Sự tích trầu cau | cổ tích
+*Mai An Tiêm | cổ tích dưa hấu
+*Hồng Bàng | truyền thuyết Con Rồng cháu Tiên
+*Cóc kiện trời | cổ tích
+*Tấm Cám | cổ tích
+*Thạch Sanh (truyện thơ) | cổ tích Thạch Sanh
+*Cây tre trăm đốt | cổ tích
+*Cây khế (truyện) | cổ tích ăn khế trả vàng
+*Sọ Dừa | cổ tích
+*Chử Đồng Tử | truyền thuyết
+*Cuội (cung trăng) | cổ tích chú Cuội
+*Thằng Bờm | dân gian
+*Nàng Tô Thị | truyền thuyết Hòn Vọng Phu
+*Trương Chi | cổ tích
+*Rùa thần Kim Quy | truyền thuyết
+*An Dương Vương | truyền thuyết nỏ thần
+*Thầy bói xem voi | ngụ ngôn
+*Rét nàng Bân | cổ tích
+*Công và quạ | cổ tích
+*Sự tích con thạch sùng | cổ tích
+*Sự tích hoa phượng | cổ tích
+*Hồ Ba Bể | truyền thuyết
+*Ngũ Hành Sơn | truyền thuyết
+*Hồ Núi Cốc | truyền thuyết
+*Ba Giai | truyện cười dân gian
+Lạc Long Quân | truyền thuyết
+Âu Cơ | truyền thuyết
+Kinh Dương Vương | truyền thuyết
+Tiên Dung | truyền thuyết
+Mỵ Châu | truyền thuyết
+Trọng Thủy | truyền thuyết
+Thuận Thiên Kiếm | truyền thuyết
+Sơn Tinh | nhân vật
+Thủy Tinh (nhân vật) | nhân vật
+Từ Thức | cổ tích
+Quan án xử kiện | cổ tích
+Hồn Trương Ba, da hàng thịt | cổ tích
+Ngưu Lang Chức Nữ | truyền thuyết
+Dã tràng | dân gian
+Lý Ông Trọng | truyền thuyết
+Thuồng luồng | truyền thuyết
+Rồng Việt Nam | văn hóa
+Liễu Hạnh Công chúa | truyền thuyết
+Tứ bất tử | tín ngưỡng
+Bà Mụ | tín ngưỡng
+Hằng Nga | truyền thuyết chị Hằng
+Thần trụ trời | thần thoại
+Thần Nông | thần thoại
+Đầm Dạ Trạch | truyền thuyết
+Thành Cổ Loa | truyền thuyết
+Núi Bà Đen | truyền thuyết
+Núi Sam | truyền thuyết
+Ao Bà Om | truyền thuyết
+Táo quân | tín ngưỡng ông Công ông Táo
+Trạng Quỳnh | dân gian
+Trạng Lợn | dân gian
+Tú Xuất | truyện cười dân gian
+Bác Ba Phi | truyện cười dân gian
+Chàng Lía | truyền thuyết
+Chằn tinh | nhân vật cổ tích
+Lương Thế Vinh | dân gian
+Nàng Bình Khương | truyền thuyết
+Chuyện người con gái Nam Xương | truyền kỳ
+Linh Lang | truyền thuyết
+Thạch tướng quân | truyền thuyết
+Cô Đôi Thượng Ngàn | truyền thuyết
+Thần Cao Sơn | truyền thuyết
+Ngũ thông thần | truyền thuyết
+Lâm Cung Thánh Mẫu | truyền thuyết
+Lý Quốc Sư | truyền thuyết
+Mẫu Bạch Kê | truyền thuyết
+Bà Chúa Kho (Hà Nội) | truyền thuyết
+Tô Lịch | truyền thuyết sông Tô Lịch
+Trê Cóc | truyện thơ
+Lục Vân Tiên | truyện thơ
+# Sách nguồn (không phải truyện, dùng để tra cứu):
+Truyền kỳ mạn lục | sách
+Lĩnh Nam chích quái | sách
+Việt điện u linh tập | sách
