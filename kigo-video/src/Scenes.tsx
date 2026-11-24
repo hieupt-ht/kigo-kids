@@ -40,9 +40,9 @@ export const King: React.FC = () => (
   <Sky colors={["#fff3bf", "#ffe3a0"]}>
     <KigoCorner />
     <Row top={200}>
-      <WordCard emoji="👑" en="king" vi="vua" at={20} />
-      <WordCard emoji="👸" en="princess" vi="công chúa" at={110} />
-      <WordCard emoji="👧" en="daughter" vi="con gái" at={200} />
+      <WordCard emoji="👑" en="king" vi="vua" at={180} />
+      <WordCard emoji="👸" en="princess" vi="công chúa" at={260} />
+      <WordCard emoji="👧" en="daughter" vi="con gái" at={340} />
     </Row>
     <Caption
       vi="Ngày xưa, vua Hùng thứ 18 có một cô con gái xinh đẹp, hiền dịu tên là Mỵ Nương."
@@ -65,8 +65,8 @@ export const Suitors: React.FC = () => {
           </Pop>
           <Row top={250}>
             <div style={{ width: 700 }} />
-            <WordCard emoji="⛰️" en="mountain" vi="núi" at={60} />
-            <WordCard emoji="🌳" en="hill" vi="đồi" at={140} />
+            <WordCard emoji="⛰️" en="mountain" vi="núi" at={180} />
+            <WordCard emoji="🌳" en="hill" vi="đồi" at={230} />
           </Row>
         </>
       ) : (
